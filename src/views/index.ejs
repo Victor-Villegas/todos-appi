@@ -1,0 +1,26 @@
+<%- include('partials/_header') -%>  
+
+  <div class="container mt-5">
+    <div class="row">
+      <!-- TO-DO LISTS -->
+      
+    <% tasks.forEach(task => { %> 
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><%= task.title %></h3>
+            <p><%= task.description %></p>
+            <a href="/todos/list/status/<%= task._id %>">
+              <span class="badge <%= task.status === false ? 'bg-danger' : 'bg-success'  %>">
+                <%= task.status === false ? 'Incomplete' : 'Complete'  %>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }); %> 
+
+    </div>
+  </div>
+
+<%- include('partials/_footer') -%>  
